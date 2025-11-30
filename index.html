@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Rahul Garg | Embedded & Robotics Engineer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #0f172a;
+      color: #e5e7eb;
+      line-height: 1.6;
+    }
+    a { color: #38bdf8; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    header {
+      padding: 2rem 1.5rem;
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+    .hero-text h1 {
+      font-size: 2.3rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .hero-text h2 {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #9ca3af;
+      margin-bottom: 0.75rem;
+    }
+    .hero-badges {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.75rem;
+    }
+    .badge {
+      border-radius: 999px;
+      border: 1px solid #1f2937;
+      padding: 0.2rem 0.7rem;
+      font-size: 0.8rem;
+      background: rgba(15,23,42,0.8);
+    }
+    .hero-links a {
+      margin-right: 1rem;
+      font-size: 0.9rem;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 1.5rem 3rem;
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.2fr);
+      gap: 2.5rem;
+    }
+    @media (max-width: 800px) {
+      main { grid-template-columns: minmax(0, 1fr); }
+    }
+
+    section { margin-bottom: 2rem; }
+    h3.section-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #9ca3af;
+      margin-bottom: 0.75rem;
+    }
+
+    .card {
+      border-radius: 1rem;
+      border: 1px solid #1f2937;
+      padding: 1rem 1.2rem;
+      background: radial-gradient(circle at top left, rgba(56,189,248,0.12), transparent),
+                  radial-gradient(circle at bottom right, rgba(129,140,248,0.15), transparent),
+                  #020617;
+      margin-bottom: 0.75rem;
+    }
+    .card h4 {
+      font-size: 1rem;
+      margin-bottom: 0.25rem;
+      font-weight: 600;
+    }
+    .card-sub {
+      font-size: 0.87rem;
+      color: #9ca3af;
+      margin-bottom: 0.4rem;
+    }
+    .card-time {
+      font-size: 0.8rem;
+      color: #6b7280;
+      margin-bottom: 0.4rem;
+    }
+    .card ul {
+      padding-left: 1.1rem;
+      font-size: 0.9rem;
+    }
+    .card ul li { margin-bottom: 0.25rem; }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      font-size: 0.82rem;
+      margin-top: 0.3rem;
+    }
+    .pill {
+      border-radius: 999px;
+      border: 1px solid #1f2937;
+      padding: 0.15rem 0.6rem;
+      background: #020617;
+    }
+
+    .list-compact li {
+      margin-bottom: 0.25rem;
+      font-size: 0.9rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.8rem;
+      color: #6b7280;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="hero-text">
+      <h1>Rahul Garg</h1>
+      <h2>Embedded Systems & Robotics Engineer | IoT | Firmware | UGV & Drones</h2>
+      <div class="hero-badges">
+        <span class="badge">Embedded C / C++</span>
+        <span class="badge">ARM Cortex-M, STM32, ESP32</span>
+        <span class="badge">RTOS · FreeRTOS</span>
+        <span class="badge">Linux Device Drivers</span>
+        <span class="badge">Robotics & UGV</span>
+      </div>
+      <p style="max-width: 480px; font-size: 0.92rem;">
+        I design and develop embedded & robotics systems — from firmware and sensor fusion
+        to IoT connectivity and real-time control. Currently working on soil-testing systems
+        and unmanned ground vehicles at IIT Roorkee.
+      </p>
+      <div class="hero-links" style="margin-top: 0.75rem;">
+        <a href="mailto:youremail@example.com">youremail@example.com</a>
+        <a href="https://github.com/your-github" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/your-linkedin" target="_blank">LinkedIn</a>
+        <!-- Add resume link if hosted -->
+        <!-- <a href="resume.pdf" target="_blank">Download Resume</a> -->
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- LEFT COLUMN -->
+    <div>
+      <section id="about">
+        <h3 class="section-title">About</h3>
+        <div class="card">
+          <p style="font-size:0.92rem;">
+            I am an Embedded Systems engineer with an Electronics & Communication background,
+            focusing on robotics, IoT, and real-time control. I enjoy taking ideas from
+            block diagram → schematic → firmware → field testing.
+          </p>
+        </div>
+      </section>
+
+      <section id="projects">
+        <h3 class="section-title">Selected Projects</h3>
+
+        <div class="card">
+          <h4>Pesticide-Sprayer Unmanned Ground Vehicle (UGV)</h4>
+          <div class="card-sub">Autonomous/remote UGV platform for precision pesticide spraying</div>
+          <div class="card-time">IIT Roorkee · 2025</div>
+          <ul>
+            <li>Designed chassis and control system to carry ~160 kg pesticide payload with adjustable boom sprayer.</li>
+            <li>Integrated motor drivers, LiDAR / ultrasonic sensors, IMU and wireless control for safe navigation.</li>
+            <li>Implemented embedded firmware for drive control, safety limits and telemetry.</li>
+          </ul>
+          <div class="pill-row">
+            <span class="pill">UGV</span><span class="pill">Motor Control</span>
+            <span class="pill">Sensor Fusion</span><span class="pill">ESP32 / STM32</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h4>Soil Testing Embedded System (Lab & Field)</h4>
+          <div class="card-sub">Smart soil health analyzer for NPK, pH, EC, moisture & temperature</div>
+          <div class="card-time">2025</div>
+          <ul>
+            <li>Interfaced RS485 NPK sensor, analog pH & EC sensors, and soil moisture & temperature sensors using ESP32.</li>
+            <li>Implemented calibration routines, filtering and parameter computation for common crops.</li>
+            <li>Designed system to work in lab setup with option to deploy in field with battery power.</li>
+          </ul>
+          <div class="pill-row">
+            <span class="pill">ESP32</span><span class="pill">RS485</span>
+            <span class="pill">Analog Front-End</span><span class="pill">IoT Agriculture</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h4>Soil Survey Android App (Concept)</h4>
+          <div class="card-sub">Farmer & admin app for soil data logging and recommendation</div>
+          <div class="card-time">2025 · Personal</div>
+          <ul>
+            <li>Designed app flow with admin login, user registration, and soil-test record management.</li>
+            <li>Defined data model for storing geo-tagged soil parameters and crop-wise recommendations.</li>
+            <li>Planned integration with embedded soil-testing device via Wi-Fi / Bluetooth.</li>
+          </ul>
+          <div class="pill-row">
+            <span class="pill">Android (Jetpack Compose)</span>
+            <span class="pill">REST / JSON</span>
+            <span class="pill">UI/UX</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h4>IoT Soil NPK Monitoring with MQTT & ThingSpeak</h4>
+          <div class="card-sub">Cloud-connected soil sensor node</div>
+          <div class="card-time">2025 · Personal</div>
+          <ul>
+            <li>Used ESP32 + MQTT to publish simulated/real NPK values to ThingSpeak dashboard.</li>
+            <li>Separated configuration into <code>config.h</code> for Wi-Fi, MQTT broker, and channel keys.</li>
+            <li>Implemented reconnection logic and periodic publishing using non-blocking timers.</li>
+          </ul>
+          <div class="pill-row">
+            <span class="pill">ESP32</span><span class="pill">MQTT</span>
+            <span class="pill">ThingSpeak</span><span class="pill">C++</span>
+          </div>
+        </div>
+
+      </section>
+
+      <section id="experience">
+        <h3 class="section-title">Experience</h3>
+
+        <div class="card">
+          <h4>Embedded Engineer – Robotics & IoT Projects</h4>
+          <div class="card-sub">IIT Roorkee (Project Work)</div>
+          <div class="card-time">2024 – Present · Roorkee, India</div>
+          <ul>
+            <li>Working on robotics and IoT solutions including UGV, soil-testing systems and sensor integration.</li>
+            <li>Responsible for firmware, communication interfaces (UART, I2C, SPI, RS485), and real-time behavior.</li>
+            <li>Collaborated with mechanical & agriculture teams to translate requirements into embedded designs.</li>
+          </ul>
+        </div>
+
+        <!-- Add internships if any -->
+        <!--
+        <div class="card">
+          <h4>Embedded Systems Intern</h4>
+          <div class="card-sub">Company Name</div>
+          <div class="card-time">MM YYYY – MM YYYY</div>
+          <ul>
+            <li>Key contribution 1.</li>
+            <li>Key contribution 2.</li>
+          </ul>
+        </div>
+        -->
+      </section>
+    </div>
+
+    <!-- RIGHT COLUMN -->
+    <aside>
+      <section id="skills">
+        <h3 class="section-title">Skills</h3>
+        <div class="card">
+          <h4>Programming</h4>
+          <ul class="list-compact">
+            <li>Embedded C, C++</li>
+            <li>Basic Python (scripting, tools)</li>
+            <li>Arduino / ESP-IDF style development</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>Microcontrollers & SoCs</h4>
+          <ul class="list-compact">
+            <li>ARM Cortex-M (STM32 series)</li>
+            <li>ESP32 / ESP32-S3</li>
+            <li>Basic AVR / Arduino</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>Embedded & RTOS</h4>
+          <ul class="list-compact">
+            <li>FreeRTOS concepts: tasks, queues, semaphores</li>
+            <li>Timer, interrupt and low-level peripheral handling</li>
+            <li>Basic Linux device driver concepts</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>Communication & Sensors</h4>
+          <ul class="list-compact">
+            <li>UART, I2C, SPI, RS485, CAN (concepts)</li>
+            <li>IMU (MPU6050, ICM42688P), GPS, LiDAR (TF-Luna, RPLIDAR – concept)</li>
+            <li>NPK, pH, EC, moisture & temperature sensors</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>Tools & Platforms</h4>
+          <ul class="list-compact">
+            <li>VS Code, STM32CubeIDE, Arduino IDE</li>
+            <li>Git & GitHub</li>
+            <li>EasyEDA (schematic + PCB – beginner)</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="education">
+        <h3 class="section-title">Education</h3>
+        <div class="card">
+          <h4>PG-DESD – Post Graduate Diploma in Embedded Systems Design</h4>
+          <div class="card-sub">CDAC (ACTS)</div>
+          <div class="card-time">Feb 2025 Batch</div>
+        </div>
+        <div class="card">
+          <h4>B.Tech – Electronics & Communication Engineering</h4>
+          <div class="card-sub">Your Institute Name</div>
+          <div class="card-time">Year of Graduation</div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <h3 class="section-title">Contact</h3>
+        <div class="card">
+          <ul class="list-compact">
+            <li>Email: youremail@example.com</li>
+            <li>Location: Roorkee, India</li>
+            <li>GitHub: <a href="https://github.com/your-github" target="_blank">github.com/your-github</a></li>
+            <li>LinkedIn: <a href="https://www.linkedin.com/in/your-linkedin" target="_blank">linkedin.com/in/your-linkedin</a></li>
+          </ul>
+        </div>
+      </section>
+    </aside>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Rahul Garg · Built with HTML & CSS
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
