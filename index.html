@@ -4,287 +4,260 @@
   <meta charset="UTF-8" />
   <title>Rahul Garg | Embedded & Robotics Engineer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  
+
   <style>
     :root {
-      --bg-dark: #020617;
-      --neon-green: #00ff9d;
-      --neon-blue: #38bdf8;
-      --neon-cyan: #00eaff;
-      --text-main: #e5e7eb;
-      --text-muted: #9ca3af;
-      --card-bg: rgba(10, 20, 40, 0.75);
-      --border-glow: rgba(0, 255, 150, 0.55);
+      --accent: #22c55e; /* green */
+      --accent-soft: rgba(34,197,94,0.35);
+      --cyan: #38bdf8;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --card-bg: rgba(0,0,0,0.55);
+      --border: rgba(255,255,255,0.12);
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Segoe UI", system-ui, sans-serif;
-    }
-
-    /* CYBERPUNK MCU BACKGROUND (PCB GRID + NEON) */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      background: linear-gradient(135deg, #020617 0%, #011221 100%);
-      color: var(--text-main);
-      position: relative;
-      overflow-x: hidden;
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      color: var(--text);
+      line-height: 1.6;
+
+      /* FULL BACKGROUND IMAGE */
+      background:
+        linear-gradient(rgba(0,0,0,0.70), rgba(0,0,0,0.70)),
+        url("https://www.tessolve.com/wp-content/uploads/2022/06/embedded-system-micro.jpg");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      min-height: 100vh;
     }
 
-    /* Animated PCB Grid */
+    /* Subtle glowing PCB-style grid overlay */
     body::before {
       content: "";
       position: fixed;
       inset: 0;
       background-image:
-        linear-gradient(#0a1a2f 1px, transparent 1px),
-        linear-gradient(90deg, #0a1a2f 1px, transparent 1px);
-      background-size: 40px 40px;
-      opacity: 0.25;
-      animation: gridmove 40s linear infinite;
+        linear-gradient(rgba(0,255,180,0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,255,255,0.08) 1px, transparent 1px);
+      background-size: 42px 42px;
       pointer-events: none;
+      z-index: -1;
     }
 
-    @keyframes gridmove {
-      0% { transform: translateY(0px); }
-      100% { transform: translateY(40px); }
-    }
-
-    /* Glowing circuit traces */
-    body::after {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background-image: url("https://i.imgur.com/jv3H2nW.png");
-      background-size: cover;
-      background-repeat: no-repeat;
-      opacity: 0.05;
-      pointer-events: none;
-    }
-
-    /* HEADER */
     header {
-      padding: 2rem 1.8rem;
       max-width: 1100px;
-      margin: auto;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
     }
 
-    .title-wrap {
-      margin-bottom: 2rem;
+    /* TOP STATUS STRIP */
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      color: var(--muted);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      margin-bottom: 1.3rem;
     }
 
-    .title-wrap h1 {
-      font-size: 2.8rem;
+    .led {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.22rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      font-size: 0.7rem;
+      background: rgba(0,0,0,0.45);
+      backdrop-filter: blur(5px);
+    }
+
+    .led-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 8px var(--accent);
+    }
+
+    .hero {
+      border: 1px solid var(--border);
+      background: rgba(0,0,0,0.50);
+      backdrop-filter: blur(12px);
+      border-radius: 1.4rem;
+      padding: 1.8rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 1.4rem;
+    }
+
+    .hero-main h1 {
+      font-size: clamp(2.2rem, 3vw, 2.8rem);
       font-weight: 700;
-      color: var(--neon-cyan);
-      text-shadow: 0 0 10px var(--neon-cyan);
     }
 
-    .title-wrap h2 {
+    .hero-main h2 {
+      color: var(--muted);
       font-size: 1rem;
-      margin-top: 0.5rem;
-      color: var(--text-muted);
-      letter-spacing: 0.05em;
+      margin: 0.5rem 0 1rem;
     }
 
-    /* BADGES */
-    .badges {
-      margin-top: 1rem;
+    .hero-badges {
       display: flex;
       flex-wrap: wrap;
       gap: 0.5rem;
+      margin: 1rem 0;
     }
 
     .badge {
-      background: rgba(0, 255, 160, 0.08);
-      border: 1px solid var(--border-glow);
-      padding: 6px 12px;
-      font-size: 0.8rem;
+      background: rgba(0,0,0,0.55);
+      border: 1px solid rgba(255,255,255,0.15);
+      padding: 0.22rem 0.75rem;
       border-radius: 999px;
-      color: var(--neon-green);
-      text-shadow: 0 0 6px var(--neon-green);
+      font-size: 0.78rem;
+      backdrop-filter: blur(6px);
     }
 
-    /* LINKS (Cyber Chips) */
-    .links {
-      margin-top: 1.2rem;
-      display: flex;
-      gap: 0.8rem;
-      flex-wrap: wrap;
-    }
-
-    .chip {
-      border-radius: 999px;
-      padding: 8px 15px;
-      border: 1px solid var(--neon-blue);
-      background: rgba(0, 140, 255, 0.1);
-      backdrop-filter: blur(4px);
-      color: var(--neon-blue);
+    .chip-link {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      transition: 0.2s ease-in-out;
-      text-decoration: none;
+      gap: 0.35rem;
+      padding: 0.32rem 1rem;
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 999px;
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(4px);
+      font-size: 0.82rem;
+      transition: 0.2s;
     }
 
-    .chip:hover {
+    .chip-link:hover {
+      border-color: var(--accent-soft);
+      box-shadow: 0 0 12px var(--accent-soft);
       transform: translateY(-2px);
-      box-shadow: 0 0 12px var(--neon-blue);
-      border-color: var(--neon-cyan);
     }
 
-    /* MAIN GRID */
     main {
       max-width: 1100px;
-      margin: auto;
-      padding: 1rem 1.8rem 3rem;
+      margin: 0 auto;
+      padding: 1rem 1.5rem 3rem;
       display: grid;
       grid-template-columns: 2fr 1fr;
       gap: 2rem;
     }
-
-    @media(max-width: 880px) {
-      main {
-        grid-template-columns: 1fr;
-      }
+    @media (max-width: 880px) {
+      main { grid-template-columns: 1fr; }
     }
 
-    /* SECTION TITLE */
-    .section-title {
+    h3.section-title {
       font-size: 0.9rem;
+      color: var(--muted);
+      letter-spacing: 0.16em;
+      margin-bottom: 0.6rem;
       text-transform: uppercase;
-      letter-spacing: 0.15em;
-      color: var(--text-muted);
-      margin-bottom: 1rem;
     }
 
-    /* NEON CARDS (Projects, Experience) */
     .card {
-      background: var(--card-bg);
-      border: 1px solid rgba(0, 255, 150, 0.25);
-      padding: 1rem 1.2rem;
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(10px);
       border-radius: 1rem;
-      margin-bottom: 1rem;
+      border: 1px solid var(--border);
+      padding: 1.1rem;
+      margin-bottom: 0.85rem;
       position: relative;
-      box-shadow: 0 0 25px rgba(0, 255, 150, 0.05);
-      transition: 0.2s ease-in-out;
     }
 
-    .card:hover {
-      box-shadow: 0 0 25px rgba(0, 255, 150, 0.3);
-      border-color: var(--neon-green);
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-left: 2px solid var(--cyan);
+      border-radius: inherit;
+      opacity: 0.6;
+      pointer-events: none;
     }
 
-    .card h4 {
-      font-size: 1rem;
-      margin-bottom: 0.3rem;
-      color: var(--neon-green);
-      text-shadow: 0 0 6px var(--neon-green);
-    }
-
-    .card-sub {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      margin-bottom: 0.25rem;
-    }
-
-    .pill-row {
-      display: flex;
-      gap: 0.4rem;
-      margin-top: 0.5rem;
-      flex-wrap: wrap;
-    }
+    .card h4 { font-size: 1rem; font-weight: 600; }
 
     .pill {
-      font-size: 0.75rem;
-      border: 1px solid rgba(255,255,255,0.2);
-      padding: 3px 10px;
+      padding: 0.12rem 0.6rem;
+      background: rgba(0,0,0,0.55);
       border-radius: 999px;
-      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.25);
+      font-size: 0.78rem;
     }
 
     footer {
       text-align: center;
-      padding: 2rem;
+      padding: 1.6rem;
       font-size: 0.8rem;
-      color: var(--text-muted);
+      color: var(--muted);
     }
-
   </style>
 </head>
 
 <body>
 
   <header>
-    <div class="title-wrap">
-      <h1>Rahul Garg</h1>
-      <h2>Embedded Systems · Robotics · IoT · Real-Time Firmware · UGVs</h2>
+    <div class="top-bar">
+      <span>RAHUL GARG · EMBEDDED SYSTEMS</span>
+      <div>
+        <span class="led"><span class="led-dot"></span> MCU RUNNING</span>
+        <span class="led"><span class="led-dot"></span> SENSORS ONLINE</span>
+      </div>
     </div>
 
-    <div class="badges">
-      <span class="badge">STM32</span>
-      <span class="badge">ESP32</span>
-      <span class="badge">FreeRTOS</span>
-      <span class="badge">C / C++</span>
-      <span class="badge">Sensors & Drivers</span>
-      <span class="badge">UGV Robotics</span>
-    </div>
+    <div class="hero">
+      <div class="hero-main">
+        <h1>Rahul Garg</h1>
+        <h2>Embedded Systems Engineer · Robotics · IoT · UGV Development</h2>
 
-    <div class="links">
-      <a class="chip" href="mailto:rg97506@gmail.com">📧 Email</a>
-      <a class="chip" href="https://github.com/RahulGarg7877" target="_blank">💻 GitHub</a>
-      <a class="chip" href="https://www.linkedin.com/in/rahul-garg-8395b0290/" target="_blank">🔗 LinkedIn</a>
+        <div class="hero-badges">
+          <span class="badge">Embedded C / C++</span>
+          <span class="badge">STM32 · ESP32 · ARM Cortex-M</span>
+          <span class="badge">FreeRTOS · ISRs</span>
+          <span class="badge">Robotics & UGV</span>
+        </div>
+
+        <p>I build real-time embedded systems for robotics, agriculture automation, and IoT. I work with microcontrollers, sensors, PCB-level debugging, and firmware engineering.</p>
+
+        <div style="margin-top:1rem; display:flex; gap:0.7rem; flex-wrap:wrap;">
+          <a class="chip-link" href="mailto:rg97506@gmail.com">📧 Email</a>
+          <a class="chip-link" href="https://github.com/RahulGarg7877" target="_blank">💻 GitHub</a>
+          <a class="chip-link" href="https://www.linkedin.com/in/rahul-garg-8395b0290/" target="_blank">🔗 LinkedIn</a>
+        </div>
+      </div>
     </div>
   </header>
 
   <main>
-
-    <!-- LEFT COLUMN -->
     <div>
       <section id="projects">
         <h3 class="section-title">Projects</h3>
 
         <div class="card">
           <h4>Pesticide-Sprayer UGV</h4>
-          <div class="card-sub">Autonomous agriculture platform</div>
-          <ul>
-            <li>Designed chassis for 160 kg load.</li>
-            <li>Integrated IMU, LiDAR & motor drivers.</li>
-            <li>Real-time drive control firmware.</li>
-          </ul>
-          <div class="pill-row">
-            <span class="pill">UGV</span><span class="pill">Motor Control</span><span class="pill">Robotics</span>
+          <p>160 kg payload UGV with drive control, IMU, sensors & remote interface.</p>
+          <div style="margin-top:0.4rem; display:flex; gap:0.4rem; flex-wrap:wrap;">
+            <span class="pill">UGV</span><span class="pill">ESP32</span><span class="pill">Motor Control</span>
           </div>
         </div>
 
         <div class="card">
           <h4>Soil Testing Embedded System</h4>
-          <div class="card-sub">NPK · pH · EC · Moisture · Temperature</div>
-          <ul>
-            <li>ESP32 with RS485 NPK sensor interface.</li>
-            <li>Filtering + calibration + crop analytics.</li>
-            <li>Lab + field mode supported.</li>
-          </ul>
-          <div class="pill-row">
-            <span class="pill">ESP32</span>
-            <span class="pill">RS485</span>
-            <span class="pill">Agri-IoT</span>
+          <p>NPK, pH, EC, moisture & temp sensors using RS485 + ESP32.</p>
+          <div style="margin-top:0.4rem; display:flex; gap:0.4rem;">
+            <span class="pill">Agri-IoT</span><span class="pill">Sensors</span>
           </div>
         </div>
 
         <div class="card">
-          <h4>MQTT Soil Node</h4>
-          <div class="card-sub">Cloud-connected soil dashboard</div>
-          <ul>
-            <li>MQTT publishing to ThingSpeak.</li>
-            <li>Non-blocking publish loop + reconnection.</li>
-          </ul>
-          <div class="pill-row">
-            <span class="pill">MQTT</span><span class="pill">ThingSpeak</span><span class="pill">C++</span>
-          </div>
+          <h4>Soil Survey Android App</h4>
+          <p>Concept UI for soil-test logging + device integration.</p>
         </div>
-
       </section>
 
       <section id="experience">
@@ -292,90 +265,52 @@
 
         <div class="card">
           <h4>Embedded Engineer – Robotics & IoT</h4>
-          <div class="card-sub">IIT Roorkee</div>
-          <div class="card-time">2025 – Present</div>
-          <ul>
-            <li>UGV development & real-time firmware.</li>
-            <li>Sensor integration using UART/I2C/SPI.</li>
-            <li>Field testing & debugging.</li>
-          </ul>
+          <div class="card-sub">IIT Roorkee · 2024 – Present</div>
+          <p>UGVs, IoT systems, firmware development, and sensor integration.</p>
         </div>
-
       </section>
-
     </div>
 
-    <!-- RIGHT COLUMN -->
     <aside>
-
       <section id="skills">
         <h3 class="section-title">Skills</h3>
 
         <div class="card">
           <h4>Programming</h4>
           <ul>
-            <li>Embedded C, C++</li>
-            <li>ESP-IDF & STM32 HAL</li>
+            <li>C, C++, Python</li>
+            <li>FreeRTOS, ISRs</li>
+            <li>Embedded debugging</li>
           </ul>
         </div>
 
         <div class="card">
           <h4>Microcontrollers</h4>
           <ul>
-            <li>STM32</li>
-            <li>ESP32 / S3</li>
-            <li>Arduino / AVR</li>
+            <li>STM32</li><li>ESP32</li><li>AVR</li>
           </ul>
         </div>
 
         <div class="card">
-          <h4>Tools</h4>
+          <h4>Communication</h4>
           <ul>
-            <li>VS Code</li>
-            <li>STM32CubeIDE</li>
-            <li>Git & GitHub</li>
+            <li>UART, SPI, I2C</li>
+            <li>RS485, Modbus</li>
           </ul>
         </div>
 
-      </section>
-
-      <section id="education">
-        <h3 class="section-title">Education</h3>
-
         <div class="card">
-          <h4>PG-DESD – Embedded Systems</h4>
-          <div class="card-sub">CDAC ACTS</div>
-          <div class="card-time">2025</div>
+          <h4>Education</h4>
+          <p><strong>B.Tech ECE</strong><br>Government Engineering College Ajmer</p>
+          <p><strong>PG-DESD</strong><br>CDAC ACTS · 2025</p>
         </div>
-
-        <div class="card">
-          <h4>B.Tech – Electronics & Communication</h4>
-          <div class="card-sub">Technical College Bihar</div>
-          <div class="card-time">2024</div>
-        </div>
-
-      </section>
-
-      <section id="contact">
-        <h3 class="section-title">Contact</h3>
-
-        <div class="card">
-          <ul>
-            <li>Email: rg97506@gmail.com</li>
-            <li>GitHub: RahulGarg7877</li>
-            <li>LinkedIn: rahul-garg-8395b0290</li>
-            <li>Location: Roorkee, India</li>
-          </ul>
-        </div>
-
       </section>
 
     </aside>
-
   </main>
 
   <footer>
-    © <span id="year"></span> Rahul Garg · Cyber-Embedded Portfolio
+    © <span id="year"></span> Rahul Garg · Embedded & Robotics Engineer
   </footer>
 
   <script>
