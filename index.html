@@ -113,7 +113,6 @@
       font-size: 0.82rem;
       margin-top: 0.3rem;
     }
-
     .pill {
       border-radius: 999px;
       border: 1px solid #1f2937;
@@ -134,11 +133,13 @@
     }
   </style>
 </head>
+
 <body>
   <header>
     <div class="hero-text">
       <h1>Rahul Garg</h1>
       <h2>Embedded Systems & Robotics Engineer | IoT | Firmware | UGV & Drones</h2>
+
       <div class="hero-badges">
         <span class="badge">Embedded C / C++</span>
         <span class="badge">ARM Cortex-M, STM32, ESP32</span>
@@ -146,12 +147,14 @@
         <span class="badge">Linux Device Drivers</span>
         <span class="badge">Robotics & UGV</span>
       </div>
+
       <p style="max-width: 480px; font-size: 0.92rem;">
-        I design and develop embedded & robotics systems — firmware, sensor fusion,
-        IoT connectivity and real-time control. Currently working on soil-testing systems
+        I design and develop embedded & robotics systems — from firmware and sensor fusion
+        to IoT connectivity and real-time control. Currently working on soil-testing systems
         and unmanned ground vehicles at IIT Roorkee.
       </p>
 
+      <!-- UPDATED LINKS -->
       <div class="hero-links" style="margin-top: 0.75rem;">
         <a href="mailto:rg97506@gmail.com">rg97506@gmail.com</a>
         <a href="https://github.com/RahulGarg7877" target="_blank">GitHub</a>
@@ -161,13 +164,14 @@
   </header>
 
   <main>
+    <!-- LEFT COLUMN -->
     <div>
       <section id="about">
         <h3 class="section-title">About</h3>
         <div class="card">
           <p style="font-size:0.92rem;">
             I am an Embedded Systems engineer with an Electronics & Communication background,
-            focusing on robotics, IoT, and real-time control. I take ideas from
+            focusing on robotics, IoT, and real-time control. I enjoy taking ideas from
             block diagram → schematic → firmware → field testing.
           </p>
         </div>
@@ -178,62 +182,61 @@
 
         <div class="card">
           <h4>Pesticide-Sprayer UGV</h4>
-          <div class="card-sub">Autonomous/remote UGV platform for precision spraying</div>
+          <div class="card-sub">Autonomous/remote UGV platform for precision pesticide spraying</div>
           <div class="card-time">IIT Roorkee · 2025</div>
           <ul>
-            <li>Designed chassis & system for 160kg pesticide payload.</li>
-            <li>Integrated IMU, LiDAR/ultrasonic sensors & wireless control.</li>
-            <li>Developed telemetry, motor control & safety firmware.</li>
+            <li>Designed chassis and control system to carry 160 kg pesticide payload.</li>
+            <li>Integrated IMU, motor drivers, LiDAR/ultrasonic sensors.</li>
+            <li>Implemented drive control firmware & telemetry.</li>
           </ul>
         </div>
 
         <div class="card">
           <h4>Soil Testing Embedded System</h4>
-          <div class="card-sub">Smart analyzer for NPK, pH, EC, moisture, temp</div>
+          <div class="card-sub">Smart analyzer for NPK, pH, EC, moisture & temperature</div>
           <div class="card-time">2025</div>
           <ul>
-            <li>Interfaced RS485 NPK, pH, EC, moisture & temperature sensors.</li>
-            <li>Implemented calibration & filtering algorithms.</li>
-            <li>Supports both lab and field deployment.</li>
+            <li>Interfaced RS485 NPK, pH, EC, moisture & temperature sensors with ESP32.</li>
+            <li>Implemented filtering, calibration & soil health calculations.</li>
           </ul>
         </div>
 
         <div class="card">
           <h4>Soil Survey Android App (Concept)</h4>
           <ul>
-            <li>Designed app UI flow for admin/user & soil report storage.</li>
-            <li>Planned embedded device communication via Wi-Fi/Bluetooth.</li>
+            <li>Admin + user module, soil-test storage, UI flow design.</li>
           </ul>
         </div>
 
         <div class="card">
-          <h4>IoT Soil Monitoring (MQTT)</h4>
+          <h4>MQTT Soil Monitoring</h4>
           <ul>
             <li>ESP32 publishes soil parameters to ThingSpeak via MQTT.</li>
-            <li>Includes non-blocking timers & auto-reconnect logic.</li>
           </ul>
         </div>
       </section>
 
       <section id="experience">
         <h3 class="section-title">Experience</h3>
-
         <div class="card">
           <h4>Embedded Engineer – Robotics & IoT</h4>
           <div class="card-sub">IIT Roorkee</div>
           <div class="card-time">2024 – Present</div>
           <ul>
-            <li>UGV development, robotics control & navigation.</li>
-            <li>Sensor integration using UART/I2C/SPI/RS485.</li>
-            <li>Real-time firmware development & testing.</li>
+            <li>UGV development & real-time firmware.</li>
+            <li>Sensor interfacing: UART, I2C, SPI, RS485.</li>
+            <li>IoT & soil-testing embedded systems.</li>
           </ul>
         </div>
       </section>
     </div>
 
+    <!-- RIGHT COLUMN -->
     <aside>
+
       <section id="skills">
         <h3 class="section-title">Skills</h3>
+
         <div class="card">
           <h4>Programming</h4>
           <ul class="list-compact">
@@ -265,8 +268,8 @@
           <h4>Communication & Sensors</h4>
           <ul class="list-compact">
             <li>UART, I2C, SPI, RS485</li>
-            <li>MPU6050, ICM42688P IMU</li>
-            <li>NPK, pH, EC & soil sensors</li>
+            <li>MPU6050, ICM42688P</li>
+            <li>NPK, pH, EC & Soil Sensors</li>
           </ul>
         </div>
 
@@ -283,17 +286,20 @@
 
       <section id="education">
         <h3 class="section-title">Education</h3>
+
         <div class="card">
           <h4>PG-DESD</h4>
           <div class="card-sub">CDAC ACTS</div>
           <div class="card-time">Feb 2025 Batch</div>
         </div>
 
+        <!-- UPDATED COLLEGE NAME -->
         <div class="card">
           <h4>B.Tech — ECE</h4>
           <div class="card-sub">Technical College Bihar</div>
-          <div class="card-time">Year</div>
+          <div class="card-time">2023</div>
         </div>
+
       </section>
 
       <section id="contact">
@@ -307,11 +313,12 @@
           </ul>
         </div>
       </section>
+
     </aside>
   </main>
 
   <footer>
-    © <span id="year"></span> Rahul Garg · Built with HTML & CSS
+    © <span id="year"></span> Rahul Garr · Built with HTML & CSS
   </footer>
 
   <script>
