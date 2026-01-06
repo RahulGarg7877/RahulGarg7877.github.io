@@ -7,7 +7,7 @@
 
   <style>
     :root {
-      --accent: #22c55e; /* green */
+      --accent: #22c55e;
       --accent-soft: rgba(34,197,94,0.35);
       --cyan: #38bdf8;
       --text: #e5e7eb;
@@ -17,14 +17,13 @@
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
+
     body {
       font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
       color: var(--text);
       line-height: 1.6;
-
-      /* FULL BACKGROUND IMAGE */
       background:
-        linear-gradient(rgba(0,0,0,0.70), rgba(0,0,0,0.70)),
+        linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
         url("https://www.tessolve.com/wp-content/uploads/2022/06/embedded-system-micro.jpg");
       background-size: cover;
       background-position: center;
@@ -32,7 +31,6 @@
       min-height: 100vh;
     }
 
-    /* Subtle glowing PCB-style grid overlay */
     body::before {
       content: "";
       position: fixed;
@@ -51,15 +49,14 @@
       padding: 2rem 1.5rem;
     }
 
-    /* TOP STATUS STRIP */
     .top-bar {
       display: flex;
       justify-content: space-between;
       color: var(--muted);
       font-size: 0.8rem;
-      text-transform: uppercase;
       letter-spacing: 0.16em;
       margin-bottom: 1.3rem;
+      text-transform: uppercase;
     }
 
     .led {
@@ -71,7 +68,6 @@
       border: 1px solid var(--border);
       font-size: 0.7rem;
       background: rgba(0,0,0,0.45);
-      backdrop-filter: blur(5px);
     }
 
     .led-dot {
@@ -88,111 +84,92 @@
       backdrop-filter: blur(12px);
       border-radius: 1.4rem;
       padding: 1.8rem;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 1.4rem;
     }
 
-    .hero-main h1 {
+    .hero h1 {
       font-size: clamp(2.2rem, 3vw, 2.8rem);
       font-weight: 700;
     }
 
-    .hero-main h2 {
+    .hero h2 {
       color: var(--muted);
       font-size: 1rem;
       margin: 0.5rem 0 1rem;
     }
 
-    .hero-badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin: 1rem 0;
-    }
-
-    .badge {
-      background: rgba(0,0,0,0.55);
-      border: 1px solid rgba(255,255,255,0.15);
-      padding: 0.22rem 0.75rem;
-      border-radius: 999px;
-      font-size: 0.78rem;
-      backdrop-filter: blur(6px);
-    }
-
-    .chip-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      padding: 0.32rem 1rem;
-      border: 1px solid rgba(255,255,255,0.25);
-      border-radius: 999px;
-      background: rgba(0,0,0,0.55);
-      backdrop-filter: blur(4px);
-      font-size: 0.82rem;
-      transition: 0.2s;
-    }
-
-    .chip-link:hover {
-      border-color: var(--accent-soft);
-      box-shadow: 0 0 12px var(--accent-soft);
-      transform: translateY(-2px);
-    }
-
     main {
       max-width: 1100px;
-      margin: 0 auto;
+      margin: auto;
       padding: 1rem 1.5rem 3rem;
       display: grid;
       grid-template-columns: 2fr 1fr;
       gap: 2rem;
     }
-    @media (max-width: 880px) {
+
+    @media (max-width: 900px) {
       main { grid-template-columns: 1fr; }
     }
 
-    h3.section-title {
-      font-size: 0.9rem;
+    .section-title {
+      font-size: 0.85rem;
+      letter-spacing: 0.15em;
       color: var(--muted);
-      letter-spacing: 0.16em;
       margin-bottom: 0.6rem;
       text-transform: uppercase;
     }
 
     .card {
-      background: rgba(0,0,0,0.55);
-      backdrop-filter: blur(10px);
+      background: var(--card-bg);
       border-radius: 1rem;
       border: 1px solid var(--border);
-      padding: 1.1rem;
-      margin-bottom: 0.85rem;
+      padding: 1.2rem;
+      margin-bottom: 1rem;
       position: relative;
     }
 
     .card::before {
       content: "";
       position: absolute;
-      inset: 0;
-      border-left: 2px solid var(--cyan);
-      border-radius: inherit;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--cyan);
       opacity: 0.6;
-      pointer-events: none;
     }
 
-    .card h4 { font-size: 1rem; font-weight: 600; }
-
     .pill {
-      padding: 0.12rem 0.6rem;
-      background: rgba(0,0,0,0.55);
+      padding: 0.15rem 0.6rem;
       border-radius: 999px;
       border: 1px solid rgba(255,255,255,0.25);
-      font-size: 0.78rem;
+      font-size: 0.75rem;
+      margin-right: 0.3rem;
+    }
+
+    /* IMAGE GALLERY */
+    .project-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 0.8rem;
+      margin-top: 0.9rem;
+    }
+
+    .project-gallery img {
+      width: 100%;
+      border-radius: 0.8rem;
+      border: 1px solid rgba(255,255,255,0.15);
+      box-shadow: 0 0 16px rgba(0,255,180,0.18);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .project-gallery img:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 26px rgba(0,255,180,0.4);
     }
 
     footer {
       text-align: center;
-      padding: 1.6rem;
+      padding: 1.5rem;
       font-size: 0.8rem;
       color: var(--muted);
     }
@@ -201,123 +178,82 @@
 
 <body>
 
-  <header>
-    <div class="top-bar">
-      <span>RAHUL GARG · EMBEDDED SYSTEMS</span>
-      <div>
-        <span class="led"><span class="led-dot"></span> MCU RUNNING</span>
-        <span class="led"><span class="led-dot"></span> SENSORS ONLINE</span>
-      </div>
-    </div>
-
-    <div class="hero">
-      <div class="hero-main">
-        <h1>Rahul Garg</h1>
-        <h2>Embedded Systems Engineer · Robotics · IoT · UGV Development</h2>
-
-        <div class="hero-badges">
-          <span class="badge">Embedded C / C++</span>
-          <span class="badge">STM32 · ESP32 · ARM Cortex-M</span>
-          <span class="badge">FreeRTOS · ISRs</span>
-          <span class="badge">Robotics & UGV</span>
-        </div>
-
-        <p>I build real-time embedded systems for robotics, agriculture automation, and IoT. I work with microcontrollers, sensors, PCB-level debugging, and firmware engineering.</p>
-
-        <div style="margin-top:1rem; display:flex; gap:0.7rem; flex-wrap:wrap;">
-          <a class="chip-link" href="mailto:rg97506@gmail.com">📧 Email</a>
-          <a class="chip-link" href="https://github.com/RahulGarg7877" target="_blank">💻 GitHub</a>
-          <a class="chip-link" href="https://www.linkedin.com/in/rahul-garg-8395b0290/" target="_blank">🔗 LinkedIn</a>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <main>
+<header>
+  <div class="top-bar">
+    <span>RAHUL GARG · EMBEDDED SYSTEMS</span>
     <div>
-      <section id="projects">
-        <h3 class="section-title">Projects</h3>
+      <span class="led"><span class="led-dot"></span> MCU RUNNING</span>
+      <span class="led"><span class="led-dot"></span> SENSORS ONLINE</span>
+    </div>
+  </div>
 
-        <div class="card">
-          <h4>Pesticide-Sprayer UGV</h4>
-          <p>160 kg payload UGV with drive control, IMU, sensors & remote interface.</p>
-          <div style="margin-top:0.4rem; display:flex; gap:0.4rem; flex-wrap:wrap;">
-            <span class="pill">UGV</span><span class="pill">ESP32</span><span class="pill">Motor Control</span>
-          </div>
-        </div>
+  <div class="hero">
+    <h1>Rahul Garg</h1>
+    <h2>Embedded Systems Engineer · Robotics · IoT · UGV Development</h2>
 
-        <div class="card">
-          <h4>Soil Testing Embedded System</h4>
-          <p>NPK, pH, EC, moisture & temp sensors using RS485 + ESP32.</p>
-          <div style="margin-top:0.4rem; display:flex; gap:0.4rem;">
-            <span class="pill">Agri-IoT</span><span class="pill">Sensors</span>
-          </div>
-        </div>
+    <p>
+      I design and build real-time embedded systems for robotics,
+      environmental monitoring, and agricultural automation.
+    </p>
+  </div>
+</header>
 
-        <div class="card">
-          <h4>Soil Survey Android App</h4>
-          <p>Concept UI for soil-test logging + device integration.</p>
-        </div>
-      </section>
+<main>
+  <section>
+    <h3 class="section-title">Projects</h3>
 
-      <section id="experience">
-        <h3 class="section-title">Experience</h3>
+    <div class="card">
+      <h4>Environmental Sensor Drone – Field Testing</h4>
+      <p>
+        Successful real-world deployment and night-time testing of an
+        environmental monitoring drone integrating sensors, telemetry,
+        onboard processing, and flight stability validation.
+      </p>
 
-        <div class="card">
-          <h4>Embedded Engineer – Robotics & IoT</h4>
-          <div class="card-sub">IIT Roorkee · July 2025 – Present</div>
-          <p>UGVs, IoT systems, firmware development, and sensor integration.</p>
-        </div>
-      </section>
+      <div style="margin-top:0.4rem;">
+        <span class="pill">Drone</span>
+        <span class="pill">Environmental Sensors</span>
+        <span class="pill">ESP32</span>
+        <span class="pill">Field Testing</span>
+      </div>
+
+      <div class="project-gallery">
+        <img src="assets/2.jpg" alt="Environmental sensor drone field testing">
+        <img src="assets/3.jpg" alt="Environmental sensor drone top view">
+      </div>
+
+      <p style="margin-top:0.6rem; font-size:0.8rem; color:var(--muted);">
+        Successful environmental sensor drone validation under real field conditions.
+      </p>
+    </div>
+  </section>
+
+  <aside>
+    <h3 class="section-title">Skills</h3>
+
+    <div class="card">
+      <p>
+        C, C++, Python<br>
+        FreeRTOS, ISRs<br>
+        UART, SPI, I2C, RS485<br>
+        ESP32, STM32
+      </p>
     </div>
 
-    <aside>
-      <section id="skills">
-        <h3 class="section-title">Skills</h3>
+    <div class="card">
+      <p><strong>B.Tech (ECE)</strong><br>GEC Ajmer · 2024</p>
+      <p><strong>PG-DESD</strong><br>CDAC ACTS · 2025</p>
+    </div>
+  </aside>
+</main>
 
-        <div class="card">
-          <h4>Programming</h4>
-          <ul>
-            <li>C, C++, Python</li>
-            <li>FreeRTOS, ISRs</li>
-            <li>Embedded debugging</li>
-          </ul>
-        </div>
+<footer>
+  © <span id="year"></span> Rahul Garg · Embedded & Robotics Engineer
+</footer>
 
-        <div class="card">
-          <h4>Microcontrollers</h4>
-          <ul>
-            <li>STM32</li><li>ESP32</li><li>AVR</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h4>Communication</h4>
-          <ul>
-            <li>UART, SPI, I2C</li>
-            <li>RS485, Modbus</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h4>Education</h4>
-          <p><strong>B.Tech ECE</strong><br>Government Engineering College Ajmer</strong><br>2024</p>
-          <p><strong>PG-DESD</strong><br>CDAC ACTS · FEB 2025</p>
-        </div>
-      </section>
-
-    </aside>
-  </main>
-
-  <footer>
-    © <span id="year"></span> Rahul Garg · Embedded & Robotics Engineer
-  </footer>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 
 </body>
 </html>
-
-
